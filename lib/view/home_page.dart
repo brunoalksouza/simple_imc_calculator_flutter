@@ -11,6 +11,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.deepPurple,
+          foregroundColor: Colors.white,
           title: const Text('IMC Calculator'),
         ),
         body: Padding(
@@ -40,7 +42,11 @@ class HomePage extends StatelessWidget {
                 onPressed: () {
                   controller.calculateIMC();
                 },
-                child: const Text('Calcular'),
+                child: RxBuilder(
+                  builder: (_) => Text(
+                    controller.result.isEmpty ? 'Calcular' : 'Recalcular',
+                  ),
+                ),
               ),
               const SizedBox(height: 20),
               RxBuilder(
