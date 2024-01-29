@@ -6,6 +6,7 @@ class HomeController {
 
   void setAltura(String value) =>
       _altura = (double.tryParse(value) ?? 0.0) / 100;
+
   void setPeso(String value) => _peso = double.tryParse(value) ?? 0.0;
 
   final _result = RxNotifier<String>('');
@@ -21,7 +22,7 @@ class HomeController {
     } else if (imcValue >= 18.5 && imcValue < 25) {
       _result.value = 'IMC: $imcText - Peso normal';
     } else {
-      _result.value = 'IMC: $imcText - Abaixo do peso';
+      _result.value = 'IMC: $imcText - Acima do peso';
     }
   }
 }
